@@ -3,148 +3,396 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-      {/* Hero Section - Emotional Connection + Clear CTA */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/90 to-stone-900/90 z-10"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070')] bg-cover bg-center"></div>
-
-        <div className="relative z-20 text-center px-4 max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Where Coffee Meets <span className="text-amber-300">Conscience</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-amber-50 mb-8 max-w-2xl mx-auto">
-            Specialty coffee roasted in Serenbe. A place to gather, connect, and discover—featuring curated teas, rotating art, and ethically sourced single-origin coffees.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#order" className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-xl">
+    <main className="min-h-screen bg-black text-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <div className="flex items-center space-x-2">
+              <div className="text-2xl font-bold">Birdhouse</div>
+              <div className="text-sm text-white/60">Market</div>
+            </div>
+            <div className="hidden md:flex space-x-8">
+              <a href="#coffee" className="text-white/80 hover:text-white transition-colors">Coffee</a>
+              <a href="#tea" className="text-white/80 hover:text-white transition-colors">Tea</a>
+              <a href="#art" className="text-white/80 hover:text-white transition-colors">Art</a>
+              <a href="#visit" className="text-white/80 hover:text-white transition-colors">Visit</a>
+              <a href="#wholesale" className="text-white/80 hover:text-white transition-colors">Wholesale</a>
+            </div>
+            <a href="#order" className="bg-white text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-white/90 transition-all">
               Order Now
             </a>
-            <a href="#story" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold py-4 px-8 rounded-full text-lg transition-all border-2 border-white">
-              Our Story
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-black z-10"></div>
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=2787"
+            alt="Coffee brewing"
+            fill
+            className="object-cover opacity-40"
+            priority
+          />
+        </div>
+
+        <div className="relative z-20 text-center px-4 max-w-5xl">
+          <div className="mb-6 inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm border border-white/20">
+            ✨ Clean fuel for frequent flyers
+          </div>
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight tracking-tight">
+            Coffee with<br />
+            <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent">
+              Conscience
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Direct trade specialty coffee roasted in Serenbe. Ethically sourced, traditionally farmed,
+            supporting biodiversity and empowering growers at every step.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#order" className="bg-white text-black font-bold py-4 px-10 rounded-full text-lg hover:bg-white/90 transition-all transform hover:scale-105 shadow-2xl">
+              Order Coffee
+            </a>
+            <a href="#visit" className="bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white font-semibold py-4 px-10 rounded-full text-lg transition-all border border-white/20">
+              Visit Serenbe
             </a>
           </div>
 
-          {/* Social Proof - Trust Signal */}
-          <div className="mt-12 text-amber-100 text-sm">
-            <p className="mb-2">Trusted by 1,000+ coffee lovers in Atlanta</p>
-            <div className="flex justify-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-                </svg>
-              ))}
+          {/* Social Proof */}
+          <div className="mt-16 flex items-center justify-center gap-8 text-sm text-white/60">
+            <div className="flex items-center gap-2">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                  </svg>
+                ))}
+              </div>
+              <span>1,000+ happy customers</span>
+            </div>
+            <div className="hidden md:block w-px h-4 bg-white/20"></div>
+            <div className="hidden md:block">Direct Trade Certified</div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+          <svg className="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section className="py-32 px-4 bg-gradient-to-b from-black to-neutral-950">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-5xl md:text-6xl font-bold mb-8">
+            From Source to Cup
+          </h2>
+          <p className="text-xl text-white/60 leading-relaxed mb-16">
+            We believe great coffee begins at the source. Every bean we roast comes from direct trade
+            relationships built on trust, transparency, and fair compensation. Traditional farming
+            methods that protect biodiversity. Growers empowered to thrive.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8 text-left">
+            <div className="group">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🌍</div>
+              <h3 className="text-xl font-bold mb-3">Direct Trade</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                We work directly with farmers, ensuring fair prices and sustainable practices.
+                Every cup supports real people and real communities.
+              </p>
+            </div>
+            <div className="group">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🔬</div>
+              <h3 className="text-xl font-bold mb-3">Micro-Roasted</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Small-batch roasting ensures peak flavor and freshness. Each batch is carefully
+                crafted to highlight the unique characteristics of every origin.
+              </p>
+            </div>
+            <div className="group">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">♻️</div>
+              <h3 className="text-xl font-bold mb-3">Regenerative</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Traditional farming methods that protect biodiversity and regenerate soil health.
+                Coffee that's good for the planet and tastes exceptional.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Value Proposition - Why Choose Us */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-stone-900 mb-16">
-            Coffee That Makes a Difference
-          </h2>
+      {/* Coffee Offerings */}
+      <section id="coffee" className="py-32 px-4 bg-neutral-950">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <div className="inline-block px-4 py-2 bg-amber-500/10 text-amber-400 rounded-full text-sm font-semibold mb-6">
+              ☕ Fresh Roasted Weekly
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              Current Offerings
+            </h2>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">
+              Our rotating selection of single-origin coffees and signature blends
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Direct Trade */}
-            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            {[
+              {
+                name: "Ethiopia Yirgacheffe",
+                notes: "Floral, Bergamot, Stone Fruit",
+                process: "Washed",
+                roast: "Light-Medium"
+              },
+              {
+                name: "Colombia Huila",
+                notes: "Chocolate, Caramel, Citrus",
+                process: "Natural",
+                roast: "Medium"
+              },
+              {
+                name: "House Blend",
+                notes: "Balanced, Sweet, Nutty",
+                process: "Blended",
+                roast: "Medium-Dark"
+              }
+            ].map((coffee, i) => (
+              <div key={i} className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-amber-500/50 transition-all hover:bg-white/10">
+                <div className="aspect-square bg-gradient-to-br from-amber-900/20 to-orange-900/20 rounded-xl mb-6 flex items-center justify-center">
+                  <div className="text-6xl opacity-50">☕</div>
+                </div>
+                <h3 className="text-2xl font-bold mb-3">{coffee.name}</h3>
+                <p className="text-white/60 mb-4 text-sm">{coffee.notes}</p>
+                <div className="flex gap-2 mb-6">
+                  <span className="px-3 py-1 bg-white/10 rounded-full text-xs">{coffee.process}</span>
+                  <span className="px-3 py-1 bg-white/10 rounded-full text-xs">{coffee.roast}</span>
+                </div>
+                <button className="w-full bg-white text-black py-3 rounded-full font-semibold hover:bg-white/90 transition-all">
+                  Add to Cart
+                </button>
               </div>
-              <h3 className="text-2xl font-bold text-stone-900 mb-4">Direct Trade</h3>
-              <p className="text-stone-600 leading-relaxed">
-                We work directly with farmers, ensuring fair prices and sustainable practices. Every cup supports real people.
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tea & Art Section */}
+      <section className="py-32 px-4 bg-gradient-to-b from-neutral-950 to-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16">
+            {/* Tea */}
+            <div id="tea" className="text-center md:text-left">
+              <div className="text-5xl mb-6">🍃</div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Curated Tea Selection
+              </h2>
+              <p className="text-white/60 text-lg mb-6 leading-relaxed">
+                Partnered with Herbs & Kettles to bring you a diverse program of herbal infusions
+                and black tea varieties, each crafted with the same care and attention we bring to our coffee.
               </p>
+              <a href="#visit" className="inline-block text-amber-400 hover:text-amber-300 font-semibold">
+                Explore Tea Menu →
+              </a>
             </div>
 
-            {/* Curated Tea Program */}
-            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-stone-900 mb-4">Curated Tea Selection</h3>
-              <p className="text-stone-600 leading-relaxed">
-                Partnered with Herbs & Kettles for a diverse program of herbal infusions and black tea varieties crafted with care.
+            {/* Art */}
+            <div id="art" className="text-center md:text-left">
+              <div className="text-5xl mb-6">🎨</div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Rotating Art Gallery
+              </h2>
+              <p className="text-white/60 text-lg mb-6 leading-relaxed">
+                More than just a café—we're a gathering space featuring ever-changing exhibitions
+                from local Atlanta artists. Coffee for the body, art for the soul.
               </p>
-            </div>
-
-            {/* Art & Community */}
-            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-stone-900 mb-4">Art & Community</h3>
-              <p className="text-stone-600 leading-relaxed">
-                Ever-changing exhibitions featuring local artists. A space to gather, connect, and discover creativity alongside great coffee.
-              </p>
+              <a href="#visit" className="inline-block text-amber-400 hover:text-amber-300 font-semibold">
+                Current Exhibition →
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Lead Magnet - Newsletter with Incentive */}
-      <section id="newsletter" className="py-20 px-4 bg-gradient-to-br from-amber-600 to-orange-600">
+      {/* Newsletter CTA */}
+      <section className="py-24 px-4 bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Get 15% Off Your First Order
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+            Join the Flock
           </h2>
-          <p className="text-xl text-amber-50 mb-8">
-            Join our community and get exclusive access to new roasts, brewing tips, and special offers.
+          <p className="text-xl text-black/80 mb-8">
+            Get 15% off your first order plus exclusive access to new roasts and brewing tips
           </p>
-
-          <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+          <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
             <input
               type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-4 rounded-full text-lg focus:outline-none focus:ring-4 focus:ring-amber-300"
+              placeholder="your@email.com"
+              className="flex-1 px-6 py-4 rounded-full bg-black/10 backdrop-blur-sm border border-black/20 text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-black"
               required
             />
             <button
               type="submit"
-              className="bg-stone-900 hover:bg-stone-800 text-white font-bold px-8 py-4 rounded-full text-lg transition-all transform hover:scale-105 shadow-xl"
+              className="bg-black text-white font-bold px-10 py-4 rounded-full hover:bg-black/90 transition-all whitespace-nowrap"
             >
-              Claim Offer
+              Get 15% Off
             </button>
           </form>
-
-          <p className="text-amber-100 text-sm mt-4">
-            🔒 We respect your inbox. Unsubscribe anytime.
+          <p className="text-black/60 text-sm mt-4">
+            🔒 Unsubscribe anytime. We respect your inbox.
           </p>
         </div>
       </section>
 
-      {/* Social Proof - Testimonials */}
-      <section className="py-20 px-4 bg-stone-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-stone-900 mb-16">
-            What Our Community Says
-          </h2>
+      {/* Visit Section */}
+      <section id="visit" className="py-32 px-4 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              Visit Us in Serenbe
+            </h2>
+            <p className="text-xl text-white/60">
+              Located in Georgia's wellness community, 30 minutes south of Atlanta
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Location Info */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/10">
+              <h3 className="text-3xl font-bold mb-8">Hours & Location</h3>
+
+              <div className="space-y-6 mb-10">
+                <div>
+                  <div className="text-white/60 text-sm mb-2">ADDRESS</div>
+                  <div className="text-lg">
+                    10625 Serenbe Lane, Unit A<br />
+                    Chattahoochee Hills, GA 30268
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-white/60 text-sm mb-2">HOURS</div>
+                  <div className="space-y-1">
+                    <div className="flex justify-between">
+                      <span>Monday - Friday</span>
+                      <span className="text-white/60">7:30 AM - 2:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Saturday - Sunday</span>
+                      <span className="text-white/60">8:00 AM - 2:00 PM</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <a href="tel:470-756-5894" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  470-756-5894
+                </a>
+                <a href="mailto:source@birdhousemarket.info" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  source@birdhousemarket.info
+                </a>
+                <a href="https://instagram.com/birdhouse.market" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                  @birdhouse.market
+                </a>
+              </div>
+            </div>
+
+            {/* Wholesale */}
+            <div id="wholesale" className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 rounded-2xl p-10 border border-amber-500/20">
+              <h3 className="text-3xl font-bold mb-6">Wholesale Partnerships</h3>
+              <p className="text-white/70 mb-8 leading-relaxed">
+                Partner with Birdhouse for your café, restaurant, or business. We provide premium
+                quality coffee, ethical sourcing transparency, and dedicated support for wholesale partners.
+              </p>
+
+              <div className="space-y-3 mb-8 text-sm">
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Competitive wholesale pricing</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Flexible delivery schedules</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Custom roasting profiles</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Training and support</span>
+                </div>
+              </div>
+
+              <a href="mailto:source@birdhousemarket.info?subject=Wholesale%20Inquiry" className="block w-full bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 rounded-full text-center transition-all">
+                Request Wholesale Info
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-32 px-4 bg-neutral-950">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              What People Say
+            </h2>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: "Sarah M.", role: "Coffee Enthusiast", text: "The best coffee in Atlanta, hands down. Love knowing my purchase supports farmers directly." },
-              { name: "James T.", role: "Restaurant Owner", text: "We switched to Birdhouse for our wholesale needs. Quality is consistently exceptional." },
-              { name: "Emma R.", role: "Sustainability Advocate", text: "Finally, a coffee brand that aligns with my values. Transparency at every step!" }
+              {
+                text: "The best coffee in Atlanta. Period. Love knowing my purchase supports farmers directly.",
+                author: "Sarah M.",
+                role: "Coffee Enthusiast"
+              },
+              {
+                text: "We switched to Birdhouse for our restaurant's wholesale needs. The quality is consistently exceptional.",
+                author: "James T.",
+                role: "Restaurant Owner"
+              },
+              {
+                text: "Finally, a coffee brand that aligns with my values. Full transparency at every step.",
+                author: "Emma R.",
+                role: "Sustainability Advocate"
+              }
             ].map((testimonial, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="flex gap-1 mb-4">
+              <div key={i} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, j) => (
-                    <svg key={j} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <svg key={j} className="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
                       <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
                     </svg>
                   ))}
                 </div>
-                <p className="text-stone-600 mb-6 italic">&quot;{testimonial.text}&quot;</p>
+                <p className="text-white/70 mb-6 leading-relaxed">&quot;{testimonial.text}&quot;</p>
                 <div>
-                  <p className="font-bold text-stone-900">{testimonial.name}</p>
-                  <p className="text-stone-500 text-sm">{testimonial.role}</p>
+                  <div className="font-bold">{testimonial.author}</div>
+                  <div className="text-white/50 text-sm">{testimonial.role}</div>
                 </div>
               </div>
             ))}
@@ -152,151 +400,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Scarcity + Urgency - Limited Roasts */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl p-12 text-center text-white">
-            <div className="inline-block bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-6">
-              LIMITED BATCH AVAILABLE
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Fresh Roasted This Week
-            </h2>
-            <p className="text-xl text-amber-50 mb-8 max-w-2xl mx-auto">
-              Our small-batch roasts sell out fast. Order now to secure your bag of ethically sourced, perfectly roasted coffee.
-            </p>
-            <a href="#order" className="inline-block bg-white text-amber-600 hover:bg-amber-50 font-bold py-4 px-12 rounded-full text-lg transition-all transform hover:scale-105 shadow-xl">
-              Shop Fresh Roasts →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story */}
-      <section id="story" className="py-20 px-4 bg-stone-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-stone-900 mb-12">
-            Our Story
-          </h2>
-          <div className="prose prose-lg mx-auto text-stone-600">
-            <p className="text-xl leading-relaxed mb-6">
-              Birdhouse Coffee Room is more than a café—it's a place to gather, connect, and discover in the heart of Serenbe's wellness community.
-            </p>
-            <p className="text-lg leading-relaxed mb-6">
-              We're roasters, partners with farmers, and believers in the power of transparency. Our single-origin coffees and signature blends reflect our passion for quality and craftsmanship. Every bean we source comes from direct trade relationships built on trust, fair compensation, and shared values.
-            </p>
-            <p className="text-lg leading-relaxed mb-6">
-              Beyond great coffee, we feature curated tea offerings from Herbs & Kettles and rotating art exhibitions from local artists. We believe coffee shops should nourish both body and spirit.
-            </p>
-            <p className="text-lg leading-relaxed">
-              When you choose Birdhouse, you're choosing coffee that supports biodiversity, empowers communities, and delivers exceptional taste in every cup. From seed to cup, we're committed to practices that benefit both people and planet.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact & Locations */}
-      <section id="order" className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-stone-900 mb-16">
-            Visit Us in Serenbe
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Online Ordering */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-stone-900 mb-6">Visit Us</h3>
-              <div className="mb-6">
-                <p className="font-semibold text-stone-900 mb-2">Location</p>
-                <p className="text-stone-600 mb-1">10625 Serenbe Lane, Unit A</p>
-                <p className="text-stone-600 mb-4">Chattahoochee Hills, GA 30268</p>
-
-                <p className="font-semibold text-stone-900 mb-2">Hours</p>
-                <p className="text-stone-600 mb-1">Monday-Friday: 7:30 AM - 2:00 PM</p>
-                <p className="text-stone-600 mb-6">Saturday-Sunday: 8:00 AM - 2:00 PM</p>
-              </div>
-              <ul className="space-y-4 mb-8 text-stone-600">
-                <li className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+      {/* Footer */}
+      <footer className="py-16 px-4 bg-black border-t border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div className="md:col-span-2">
+              <div className="text-2xl font-bold mb-4">Birdhouse Market</div>
+              <p className="text-white/60 text-sm mb-6">
+                Direct trade specialty coffee roasted in Serenbe, Georgia.
+                Ethical sourcing, traditional farming, exceptional taste.
+              </p>
+              <div className="flex gap-4">
+                <a href="https://instagram.com/birdhouse.market" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
-                  Dine-in & Takeout
-                </li>
-                <li className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Rotating Art Exhibitions
-                </li>
-                <li className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Community Gathering Space
-                </li>
-              </ul>
-              <a href="https://www.birdhousecoffeeroom.com" target="_blank" rel="noopener noreferrer" className="block w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-full text-center text-lg transition-all transform hover:scale-105 shadow-lg">
-                Order Now
-              </a>
-            </div>
-
-            {/* Contact & Wholesale */}
-            <div className="bg-gradient-to-br from-stone-50 to-stone-100 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-stone-900 mb-6">Get In Touch</h3>
-              <div className="space-y-4 mb-8 text-stone-600">
-                <p className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <a href="tel:470-756-5894" className="hover:text-amber-600">470-756-5894</a>
-                </p>
-                <p className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <a href="mailto:source@birdhousemarket.info" className="hover:text-amber-600">source@birdhousemarket.info</a>
-                </p>
-                <p className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                  <a href="https://instagram.com/birdhouse.market" target="_blank" rel="noopener noreferrer" className="hover:text-amber-600">@birdhouse.market</a>
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-xl border-2 border-amber-200">
-                <h4 className="font-bold text-stone-900 mb-2">Wholesale Inquiries</h4>
-                <p className="text-stone-600 text-sm mb-4">
-                  Partner with us for your café, restaurant, or business. Premium quality, ethical sourcing, and dedicated support.
-                </p>
-                <a href="mailto:source@birdhousemarket.info?subject=Wholesale%20Inquiry" className="text-amber-600 hover:text-amber-700 font-semibold">
-                  Contact Us →
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="bg-stone-900 text-white py-12 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-4">Birdhouse Coffee Room</h3>
-          <p className="text-stone-400 mb-2">Specialty Coffee • Art • Community</p>
-          <p className="text-stone-500 text-sm mb-8">10625 Serenbe Lane, Unit A • Chattahoochee Hills, GA 30268</p>
-          <div className="flex justify-center gap-6 mb-8">
-            <a href="https://instagram.com/birdhouse.market" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-amber-400 transition-colors">
-              Instagram
-            </a>
-            <a href="mailto:source@birdhousemarket.info" className="text-stone-400 hover:text-amber-400 transition-colors">
-              Email
-            </a>
-            <a href="tel:470-756-5894" className="text-stone-400 hover:text-amber-400 transition-colors">
-              Call Us
-            </a>
+            <div>
+              <div className="font-bold mb-4">Quick Links</div>
+              <div className="space-y-2 text-sm">
+                <a href="#coffee" className="block text-white/60 hover:text-white transition-colors">Coffee</a>
+                <a href="#tea" className="block text-white/60 hover:text-white transition-colors">Tea Selection</a>
+                <a href="#art" className="block text-white/60 hover:text-white transition-colors">Art Gallery</a>
+                <a href="#wholesale" className="block text-white/60 hover:text-white transition-colors">Wholesale</a>
+              </div>
+            </div>
+
+            <div>
+              <div className="font-bold mb-4">Contact</div>
+              <div className="space-y-2 text-sm text-white/60">
+                <div>10625 Serenbe Lane, Unit A</div>
+                <div>Chattahoochee Hills, GA 30268</div>
+                <a href="tel:470-756-5894" className="block hover:text-white transition-colors">470-756-5894</a>
+                <a href="mailto:source@birdhousemarket.info" className="block hover:text-white transition-colors">source@birdhousemarket.info</a>
+              </div>
+            </div>
           </div>
-          <p className="text-stone-500 text-sm">
-            © 2026 Birdhouse Market. Built with ❤️ for people and planet.
-          </p>
+
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
+            <div>© 2026 Birdhouse Market. All rights reserved.</div>
+            <div>Built with ❤️ for people and planet</div>
+          </div>
         </div>
       </footer>
     </main>
